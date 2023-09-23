@@ -1,0 +1,11 @@
+
+.headerContainer
+{
+    font-size: 2rem;
+    padding: 8px;
+    display: flex;
+}
+h1
+{
+    font-size: 3.2rem;
+}
