@@ -1,34 +1,66 @@
+/*importando fontes
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap');
+
+/*sim, eu sei que n eh boa pratica importar fontes que eu n vou usar, mas eu importo pq fica mais 
+facil na hora de fazer os projetos para estudo, diminui a redundancia
+
+(no caso, transformei as fontes nao usadas em fontes backdrop)
+*/
+
+/* Inicializando variaveis de cores*/
+:root
+{
+    --blackShadow: rgba(0, 0, 0, 0.250);
+    --almostWhite: rgb(221, 221, 221);
+
+}
+
+/* Setando border box como padrao, para evitar problemas de padding aumentado tamanhos de box*/
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
+/* 
+    Tirando margens
+    Align items como start para flexbox
+    Tamanho padrao de fonte eh 10px, para melhor calculo de rem
+    Setando fonte padrao
+*/
 *
 {
     margin: 0;
     align-items: start;
     font-size: 10px;
+    font-family: 'Roboto', 'Nunito', 'Arial', 'Verdana','Tahoma', 'Trebuchet MS', sans-serif;
 }
+
+/*Colocando o quase-branco como cor padrao de fundo
+  Setando line height maior para melhor leitura */
 body
 {
-    background-color: rgb(221, 221, 221);
+    background-color: var(--almostWhite);
     line-height: 1.5;
 }
-input
+
+/*Padronizando inputs e buttons*/
+
+input,button
 {
     outline: none;
     border: none;
     padding: 5px 10px;
-}
-button
-{
-    border: none;
-    outline: none;
+    border-radius: 5px;
 }
 
+/* Coloquei isso aqui pq em algum artigo que eu li falava que ficava melhor para leitura de multimidia*/
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
+
+/* Evitando overflow, pulando p proxima linha quando n tiver espaco*/
 p,h1,h2,h3,h4,h5,h6
 {
     overflow-wrap: break-word;
