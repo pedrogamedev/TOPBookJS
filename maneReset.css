@@ -54,6 +54,12 @@ input,button
     border-radius: 5px;
 }
 
+/* Alterando o pointer quando der hover*/
+
+button:hover
+{
+  cursor: pointer;
+}
 /* Coloquei isso aqui pq em algum artigo que eu li falava que ficava melhor para leitura de multimidia*/
 img, picture, video, canvas, svg {
   display: block;
@@ -64,4 +70,16 @@ img, picture, video, canvas, svg {
 p,h1,h2,h3,h4,h5,h6
 {
     overflow-wrap: break-word;
+}
+/* Remover o spin button do input type number*/
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
 }

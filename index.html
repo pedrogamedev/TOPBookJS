@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet"  href="maneReset.css">
     <link rel="stylesheet"  href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
 <section class="main">
@@ -25,13 +25,28 @@
     <section>
         <div class="sectionHeader">
             <h2>There are X books in this List</h2>
-           <button>Add Book</button>
+           <button id="openForms">Add Book</button>
         </div>
-        <div class="bookList"></div>
+        <div class="bookGrid" id="bookGrid">
+        </div>
     </section>
 </section>
-<section class="popupForms">
-    <div class="popupContainer"></div>
+<section class="popupForms" id="forms">
+    <div class="popupContainer">
+        <button class="close" id="close">X</button>
+        <form>
+            <div class="question">
+                <label for="bookName">Book name:</label>
+                <input type="text" id="bookName" class="questionInput">
+            </div>
+            <div class="question">
+                <label for="year">Year of Launch:</label>
+                <input type="number" id="year" class="questionInput">
+            </div>
+        </form>
+       <button class="sendData" id="sendData">Add Book</button>
+    </div>
 </section>
+
 </body>
 </html>
