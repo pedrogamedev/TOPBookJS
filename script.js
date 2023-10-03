@@ -16,6 +16,7 @@ function Book(nome, ano)
 btnForms.addEventListener('click', ()=>
 {
     document.getElementById("forms").style.visibility="visible";
+    document.getElementById("forms").style.height= document.getElementsByID(bookGrid).height;
 });
 
 btnClose.addEventListener('click', ()=>
@@ -54,16 +55,21 @@ function validateForms()
 
 function addBook(nome, ano)
 {
-    const newBook = new Book(nome,ano);
-    BookList.push(nome,ano);
-
-     updateGrid();
+    BookList.push(new Book(nome,ano));
+    updateGrid();
 }
 
 function updateGrid()
 {
 
     const bookGrid = document.getElementById("bookGrid");
+
+    let child = bookGrid.lastElementChild;
+    while(child)
+    {
+        bookGrid.removeChild(child);
+        child = bookGrid.lastElementChild;
+    }
     for(i = 0; i<BookList.length; i++)
     {
         const book = document.createElement("div");
@@ -71,17 +77,15 @@ function updateGrid()
 
         const bookName = document.createElement("p");
         bookName.id = "nome livro";
-        bookName.value = BookList[i.nome];
+        bookName.innerHTML = BookList[i].nome;
 
         const bookYear = document.createElement("p");
         bookYear.id = "ano";
-        bookYear.value = BookList[i.ano];
+        bookYear.innerHTML = BookList[i].ano;
 
         book.appendChild(bookName);
         book.appendChild(bookYear);
         bookGrid.appendChild(book);
     }
-    alert("dominacio mundio");
 }
 
-const myLibrary = [];
