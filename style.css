@@ -160,7 +160,6 @@ form
     background-color: rgb(209, 209, 209);
 }
 
-
 .bookGrid
 {
     width: 100%;
@@ -185,11 +184,14 @@ form
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 30px;
+    align-items: center;
+
+    gap: 15px;
 }
 .block >p
 {
     font-size: 2rem;
+    text-align: center;
 }
 
 

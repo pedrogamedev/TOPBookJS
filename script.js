@@ -38,6 +38,16 @@ function validateForms()
 {
     const inputName = document.getElementById("bookName").value;
     const inputNum = document.getElementById("year").value;
+
+    for(let i = 0; i < BookList.length; i++)
+    {
+        if(BookList[i].nome == inputName)
+        {
+            alert("Book already added");
+            return false;
+        }
+    }
+
     if(inputName.length > 25)
     {
         alert("Insira um nome de ate 25 caracteres!");
@@ -84,12 +94,24 @@ function updateGrid()
         book.classList.add("block");
 
         const bookName = document.createElement("p");
-        bookName.id = "nome livro";
-        bookName.innerHTML = "Nome do Livro:"+"\n" + BookList[i].nome;
+        bookName.classList ="nome Livro";
+        bookName.innerHTML = "Name:<br>\"" + BookList[i].nome + "\"";
 
         const bookYear = document.createElement("p");
-        bookYear.id = "ano";
-        bookYear.innerHTML = "Ano que foi lancado:"+ "\n" + BookList[i].ano;
+        bookYear.classList = "ano";
+    
+        bookYear.innerHTML ="Year: <br>" + BookList[i].ano;
+
+        if(BookList[i].ano < 0)
+        {
+            bookYear.innerHTML ="Year<br>" +BookList[i].ano *-1 + " B.C.";
+        }
+        else if(BookList[i].ano =="-0")
+        {
+            bookYear.innerHTML ="Year: <br>0"      
+        }
+
+        // colocando os tags nos seus devidos lugares
 
         book.appendChild(bookName);
         book.appendChild(bookYear);
