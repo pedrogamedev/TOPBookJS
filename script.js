@@ -31,10 +31,6 @@ btnSend.addEventListener('click', ()=>
         document.getElementById("forms").style.visibility="hidden";
         addBook(nome, num);
     }
-    else
-    {
-        alert("O texto inserido nao e valido, insira um nome de ate 25 letras")
-    }
 });
 
 
@@ -42,12 +38,24 @@ function validateForms()
 {
     const inputName = document.getElementById("bookName").value;
     const inputNum = document.getElementById("year").value;
-    if(inputName.length > 25 || inputName.length == 0 || inputNum.length > 10)
+    if(inputName.length > 25)
     {
+        alert("Insira um nome de ate 25 caracteres!");
+        return false;
+    }
+    else if(inputName.length == 0)
+    {
+        alert("Insira um nome!");
+        return false;
+    }
+    else if(inputNum.length > 10)
+    { 
+        alert("Insira um ano de ate 10 caracteres!");
         return false;
     }
     else if(inputNum.length == 0)
-    {
+    { 
+        alert("Insira um ano!");
         return false;
     }
     return true, nome = inputName, num = inputNum;
@@ -90,7 +98,18 @@ function updateGrid()
         //atualizando a quantidade de livros
         let books = i+1;
         const bookQnt = document.getElementById("qntBooks");
-        bookQnt.innerHTML = "There are "+ books + " books in this List";
+        if(books == 1)
+        {
+            bookQnt.innerHTML = "There is "+ books + " book in this List";
+        }
+        else if(books == 0)
+        {
+            bookQnt.innerHTML = "There are no books in this List";
+        }
+        else 
+        {
+            bookQnt.innerHTML = "There are "+ books + " books in this List";
+        }
     }
 }
 
