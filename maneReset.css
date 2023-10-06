@@ -70,7 +70,8 @@ img, picture, video, canvas, svg {
 p,h1,h2,h3,h4,h5,h6
 {
     overflow-wrap: break-word;
-}
+    word-break: break-all;
+  }
 /* Remover o spin button do input type number*/
 
 input::-webkit-outer-spin-button,

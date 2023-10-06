@@ -16,7 +16,7 @@ function Book(nome, ano)
 btnForms.addEventListener('click', ()=>
 {
     document.getElementById("forms").style.visibility="visible";
-    document.getElementById("forms").style.height= document.getElementsByID(bookGrid).height;
+  
 });
 
 btnClose.addEventListener('click', ()=>
@@ -42,7 +42,7 @@ function validateForms()
 {
     const inputName = document.getElementById("bookName").value;
     const inputNum = document.getElementById("year").value;
-    if(inputName.length > 25 || inputName.length == 0)
+    if(inputName.length > 25 || inputName.length == 0 || inputNum.length > 10)
     {
         return false;
     }
@@ -77,15 +77,20 @@ function updateGrid()
 
         const bookName = document.createElement("p");
         bookName.id = "nome livro";
-        bookName.innerHTML = BookList[i].nome;
+        bookName.innerHTML = "Nome do Livro:"+"\n" + BookList[i].nome;
 
         const bookYear = document.createElement("p");
         bookYear.id = "ano";
-        bookYear.innerHTML = BookList[i].ano;
+        bookYear.innerHTML = "Ano que foi lancado:"+ "\n" + BookList[i].ano;
 
         book.appendChild(bookName);
         book.appendChild(bookYear);
         bookGrid.appendChild(book);
+
+        //atualizando a quantidade de livros
+        let books = i+1;
+        const bookQnt = document.getElementById("qntBooks");
+        bookQnt.innerHTML = "There are "+ books + " books in this List";
     }
 }
 
